@@ -4,6 +4,8 @@
 
 Un petit jeu web de collection et de combats inspiré de Pokémon : on ouvre des boosters pour former une équipe, puis on affronte 5 boss de plus en plus forts.
 
+▶ **Jouer en ligne :** https://pokemon-game-2-0.onrender.com (hébergé gratuitement sur Render : le premier chargement peut prendre une minute)
+
 | Menu | Booster | Combat |
 |---|---|---|
 | ![Menu](docs/menu.jpg) | ![Booster](docs/booster.jpg) | ![Combat](docs/combat.jpg) |
