@@ -588,11 +588,20 @@ def fight_result():
     won = session['boss_pv'] <= 0
     if won:
         state['argent'] += boss['recompense']
+        # XP et montée de niveau (comme dans la première version)
+        pokemon['xp'] += boss['niveau'] * 50
+        if pokemon['xp'] >= pokemon['niveau'] * 100:
+            pokemon['niveau'] += 1
+            pokemon['xp'] = 0
+            pokemon['attaque'] += 3
+            pokemon['pv_max'] += 10
+            pokemon['pv'] = pokemon['pv_max']
         state['boss_actuel'] += 1
         msg = T['victory'] + f" +{boss['recompense']}€ !"
         cls = "msg-success"
     else:
-        msg = T['defeat']
+        state['argent'] += 25  # petite consolation : évite d'être bloqué sans argent
+        msg = T['defeat'] + " +25€"
         cls = "msg-error"
     
     update_state(state)
